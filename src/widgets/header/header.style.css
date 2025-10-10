@@ -17,7 +17,11 @@
     @apply flex flex-col gap-1;
   }
 
+  .widget__header .user__rows .user__cols .user__name {
+    @apply text-sm font-[400];
+  }
+
   .widget__header .user__rows .user__cols .user__login {
-    @apply text-xs;
+    @apply text-xs font-[300];
   }
 }
