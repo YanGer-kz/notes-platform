@@ -1,0 +1,8 @@
+@reference "tailwindcss";
+
+@layer components {
+  .page__main {
+    @apply w-full;
+    @apply flex flex-col gap-10;
+  }
+}

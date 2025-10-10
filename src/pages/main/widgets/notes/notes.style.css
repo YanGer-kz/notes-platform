@@ -1,0 +1,10 @@
+@reference "tailwindcss";
+
+@layer components {
+  .widget__notes {
+    @apply w-full;
+    @apply px-6 py-4;
+    @apply border border-zinc-200;
+    @apply rounded-xl;
+  }
+}
