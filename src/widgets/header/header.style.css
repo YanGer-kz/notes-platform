@@ -1,1 +1,23 @@
 @reference "tailwindcss";
+
+@layer components {
+  .widget__header {
+    @apply flex flex-nowrap items-center justify-between;
+  }
+
+  .widget__header .label {
+    @apply text-xl;
+  }
+
+  .widget__header .user__rows {
+    @apply flex flex-nowrap items-center gap-4;
+  }
+
+  .widget__header .user__rows .user__cols {
+    @apply flex flex-col gap-1;
+  }
+
+  .widget__header .user__rows .user__cols .user__login {
+    @apply text-xs;
+  }
+}
