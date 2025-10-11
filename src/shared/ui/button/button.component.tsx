@@ -2,7 +2,8 @@ import './button.style.css'
 
 import { defineComponent, type SetupContext } from 'vue'
 
-import type { ButtonPorpsType, ButtonEmitsType } from './button.types'
+import type { ButtonPorpsType, ButtonEmitsType, IconType } from './button.types'
+
 import { UIIcon } from '../icon'
 
 export default defineComponent((props: ButtonPorpsType, ctx: SetupContext<ButtonEmitsType>) => {
@@ -20,7 +21,7 @@ export default defineComponent((props: ButtonPorpsType, ctx: SetupContext<Button
     )
   }
 
-  const getIcon = (icon: ButtonPorpsType['icon'], active: boolean) => {
+  const getIcon = (icon: IconType | undefined, active: boolean) => {
     if (!icon || !active) {
       return null
     }
@@ -31,12 +32,14 @@ export default defineComponent((props: ButtonPorpsType, ctx: SetupContext<Button
   }
 
   const handleClick = (event: Event) => {
-    return ctx.emit('click', event)
+    ctx.emit('click', event)
+
+    return null
   }
 
   return () => (
     <>
-      <button { ...ctx.attrs } class="ui__button" onClick={handleClick}>
+      <button { ...ctx.attrs } class={["ui__button", `ui__button-${props.severity ?? 'primary'} ui__button-${props.size ?? 'base'}`]} onClick={handleClick}>
         {
           getIcon(props.icon, props.position === undefined || props.position === 'left')
         }
@@ -56,6 +59,8 @@ export default defineComponent((props: ButtonPorpsType, ctx: SetupContext<Button
     'icon',
     'position',
     'label',
+    'severity',
+    'size',
   ],
 
   emits: [
