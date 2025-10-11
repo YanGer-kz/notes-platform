@@ -3,6 +3,7 @@ import './header.style.css'
 import { defineComponent } from 'vue'
 
 import { UIAvatar } from '@/shared/ui/avatar'
+import { UIButton } from '@/shared/ui/button'
 
 export default defineComponent(() => {
   return () => (
@@ -12,18 +13,22 @@ export default defineComponent(() => {
           My Notes.
         </h1>
 
-        <div class="user__rows">
-          <UIAvatar label='IZ'/>
+        <div class="group">
+          <div class="user__rows">
+            <UIAvatar label='IZ'/>
 
-          <div class="user__cols">
-            <h1 class="user__name">
-              Ilyas Zhakenov
-            </h1>
+            <div class="user__cols">
+              <h1 class="user__name">
+                Ilyas Zhakenov
+              </h1>
 
-            <p class="user__login">
-              @zhakenov
-            </p>
+              <p class="user__login">
+                @zhakenov
+              </p>
+            </div>
           </div>
+
+          <UIButton label='Logout' icon='logout'/>
         </div>
       </div>
     </>

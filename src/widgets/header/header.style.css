@@ -9,19 +9,23 @@
     @apply text-xl;
   }
 
-  .widget__header .user__rows {
+  .widget__header .group {
+    @apply flex flex-nowrap items-center gap-6;
+  }
+
+  .widget__header .group .user__rows {
     @apply flex flex-nowrap items-center gap-4;
   }
 
-  .widget__header .user__rows .user__cols {
+  .widget__header .group .user__rows .user__cols {
     @apply flex flex-col gap-1;
   }
 
-  .widget__header .user__rows .user__cols .user__name {
+  .widget__header .group .user__rows .user__cols .user__name {
     @apply text-sm font-[400];
   }
 
-  .widget__header .user__rows .user__cols .user__login {
+  .widget__header .group .user__rows .user__cols .user__login {
     @apply text-xs font-[300];
   }
 }
