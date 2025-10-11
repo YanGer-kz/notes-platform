@@ -25,9 +25,18 @@
   }
 
   .widget__notes .navigation .add {
+    @apply flex flex-nowrap items-center gap-2;
+    @apply px-6 py-4;
+    @apply rounded-xl;
+    @apply cursor-pointer;
     @apply bg-zinc-100;
     @apply hover:bg-zinc-200/50 active:bg-zinc-200/50 focus:bg-zinc-200/50;
     @apply duration-150;
+  }
+
+  .widget__notes .navigation .add .ui__icon {
+    @apply min-w-6 min-h-6 max-w-6 max-h-6;
+    @apply fill-zinc-800;
   }
 
   .widget__notes .navigation .active {

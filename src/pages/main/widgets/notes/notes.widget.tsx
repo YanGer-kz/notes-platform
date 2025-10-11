@@ -9,7 +9,7 @@ export default defineComponent(() => {
     <>
       <div class="widget__notes">
         <ul class="navigation">
-          <li class="item add">
+          <li class="add">
             <UIIcon icon="plus"/>
 
             <h1 class="label">
