@@ -51,6 +51,7 @@
 
   .widget__notes .navigation .item  .description, .widget__notes .navigation .item-active .description {
     @apply text-xs font-[300];
+    @apply leading-normal;
   }
 
   .widget__notes .content {
@@ -60,5 +61,9 @@
 
   .widget__notes .content .header {
     @apply flex flex-col gap-2;
+  }
+
+  .widget__notes .content .text {
+    @apply leading-normal;
   }
 }
