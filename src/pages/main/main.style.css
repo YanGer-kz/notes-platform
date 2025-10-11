@@ -2,7 +2,7 @@
 
 @layer components {
   .page__main {
-    @apply w-full;
+    @apply w-full h-full;
     @apply flex flex-col gap-10;
   }
 }
