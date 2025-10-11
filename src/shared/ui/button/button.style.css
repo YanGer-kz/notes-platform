@@ -1,0 +1,22 @@
+@reference "tailwindcss";
+
+@layer components {
+  .ui__button {
+    @apply flex flex-nowrap items-center gap-2;
+    @apply px-4 py-2.5;
+    @apply cursor-pointer;
+    @apply bg-zinc-800;
+    @apply hover:bg-zinc-600 active:bg-zinc-600 focus:bg-zinc-600;
+    @apply duration-150;
+    @apply rounded-xl;
+  }
+
+  .ui__button .ui__icon {
+    @apply min-w-5 min-h-5 max-w-5 max-h-5;
+    @apply fill-zinc-50;
+  }
+
+  .ui__button .button-label {
+    @apply text-zinc-50 font-[500];
+  }
+}
