@@ -1,4 +1,4 @@
-import type { IconType } from '../icon/icon.types'
+import type { IconType } from '../icon'
 
 export type ButtonIconPositionType = 'left' | 'right'
 export type ButtonSeverityType = 'primary' | 'secondary'
