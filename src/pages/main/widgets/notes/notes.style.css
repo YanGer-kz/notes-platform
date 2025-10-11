@@ -24,8 +24,14 @@
     @apply duration-150;
   }
 
+  .widget__notes .navigation .add {
+    @apply bg-zinc-100;
+    @apply hover:bg-zinc-200/50 active:bg-zinc-200/50 focus:bg-zinc-200/50;
+    @apply duration-150;
+  }
+
   .widget__notes .navigation .active {
-    @apply bg-zinc-200;
+    @apply bg-zinc-200 even:bg-zinc-200;
     @apply hover:bg-zinc-200/50 active:bg-zinc-200/50 focus:bg-zinc-200/50;
     @apply duration-150;
   }
