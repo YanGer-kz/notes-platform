@@ -16,4 +16,8 @@
     @apply text-sm text-zinc-600 font-[400];
     @apply leading-none;
   }
+
+  body, #app {
+    @apply w-full h-full;
+  }
 }
