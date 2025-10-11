@@ -3,7 +3,7 @@
 @layer components {
   .widget__notes {
     @apply w-full h-full;
-    @apply grid grid-cols-3 gap-2;
+    @apply grid grid-cols-3 gap-8;
     @apply px-6 py-4;
     @apply border border-zinc-200;
     @apply rounded-xl;
@@ -55,5 +55,10 @@
 
   .widget__notes .content {
     @apply col-span-2;
+    @apply flex flex-col gap-6;
+  }
+
+  .widget__notes .content .header {
+    @apply flex flex-col gap-2;
   }
 }
