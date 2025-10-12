@@ -1,0 +1,6 @@
+@reference "tailwindcss";
+
+@layer components {
+  .widget__sign_up {
+  }
+}
