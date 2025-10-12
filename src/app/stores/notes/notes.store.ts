@@ -39,7 +39,7 @@ export default defineStore('NotesModule', {
 
   getters: {
     getNotes(state): NoteType[] {
-      return state.notes
+      return state.notes.sort((a, b) => b.id - a.id)
     },
 
     getNote(state): (noteId: number | null) => NoteType | undefined {
