@@ -3,6 +3,7 @@ import './notes.style.css'
 import { defineComponent } from 'vue'
 
 import { UIButton } from '@/shared/ui/button'
+import { UIInput } from '@/shared/ui/input'
 import { UITextarea } from '@/shared/ui/textarea'
 
 export default defineComponent(() => {
@@ -45,11 +46,11 @@ export default defineComponent(() => {
           <div class="header">
             <div class="group">
               <span class="date">
-                SAT, 11 OCT
+                SAT, 9 OCT
               </span>
 
               <h1 class="label">
-                Lorem, ipsum dolor.
+                <UIInput value='Lorem, ipsum dolor.'/>
               </h1>
             </div>
 
