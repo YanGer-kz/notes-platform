@@ -1,11 +1,14 @@
 import './header.style.css'
 
 import { defineComponent } from 'vue'
+import { useRouter } from 'vue-router'
 
 import { UIAvatar } from '@/shared/ui/avatar'
 import { UIButton } from '@/shared/ui/button'
 
 export default defineComponent(() => {
+  const router = useRouter()
+
   return () => (
     <>
       <div class="widget__header">
@@ -28,7 +31,7 @@ export default defineComponent(() => {
             </div>
           </div>
 
-          <UIButton label='Logout' icon='logout'/>
+          <UIButton label='Logout' icon='logout' onClick={() => router.push({ path: '/auth' })}/>
         </div>
       </div>
     </>
