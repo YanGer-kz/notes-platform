@@ -1,6 +1,0 @@
-@reference "tailwindcss";
-
-@layer components {
-  .ui__alert {
-  }
-}
