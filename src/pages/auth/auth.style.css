@@ -1,4 +1,8 @@
 @reference "tailwindcss";
 
 @layer components {
+  .page__auth {
+    @apply w-full h-full;
+    @apply flex flex-nowrap items-center justify-center;
+  }
 }
