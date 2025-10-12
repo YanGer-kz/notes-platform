@@ -2,5 +2,15 @@
 
 @layer components {
   .widget__sign_up {
+    @apply w-96;
+    @apply flex flex-col gap-4;
+  }
+
+  .widget__sign_up .header {
+    @apply flex flex-col gap-2;
+  }
+
+  .widget__sign_up .form {
+    @apply flex flex-col gap-2;
   }
 }
