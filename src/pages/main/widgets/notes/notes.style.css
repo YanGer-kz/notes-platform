@@ -60,6 +60,10 @@
   }
 
   .widget__notes .content .header {
+    @apply flex flex-nowrap items-center justify-between;
+  }
+
+  .widget__notes .content .header .group {
     @apply flex flex-col gap-2;
   }
 
