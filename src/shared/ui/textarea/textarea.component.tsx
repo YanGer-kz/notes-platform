@@ -14,13 +14,14 @@ export default defineComponent((props: TextareaPropsType, ctx: SetupContext<Text
 
   return () => (
     <>
-      <textarea { ...ctx.attrs } class={["ui__textarea", { fulid: props.fulid }]} value={props.value} onInput={handleValue}/>
+      <textarea { ...ctx.attrs } class={["ui__textarea", { fulid: props.fulid }]} value={props.value} onInput={handleValue} placeholder={props.placeholder}/>
     </>
   )
 }, {
   props: [
     'value',
     'fulid',
+    'placeholder',
   ],
 
   emits: [
