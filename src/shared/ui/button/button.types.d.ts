@@ -1,7 +1,7 @@
 import type { IconType } from '../icon'
 
 export type ButtonIconPositionType = 'left' | 'right'
-export type ButtonSeverityType = 'primary' | 'secondary'
+export type ButtonSeverityType = 'primary' | 'secondary' | 'danger'
 export type ButtonSizeType = 'small' | 'base' | 'large'
 
 export type ButtonPorpsType = {
