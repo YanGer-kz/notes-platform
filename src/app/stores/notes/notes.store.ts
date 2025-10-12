@@ -35,6 +35,10 @@ export default defineStore('NotesModule', {
         updated_at: new Date(),
       })
     },
+
+    removeNote(noteId: number) {
+      this.notes.splice(this.notes.findIndex(item => item.id === noteId), 1)
+    }
   },
 
   getters: {

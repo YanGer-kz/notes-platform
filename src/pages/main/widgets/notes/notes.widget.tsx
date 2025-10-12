@@ -63,7 +63,7 @@ export default defineComponent(() => {
               </h1>
             </div>
   
-            <UIButton icon='trash-can-outline' severity='danger'/>
+            <UIButton icon='trash-can-outline' severity='danger' onClick={() => notesStore.removeNote(note.id)}/>
           </div>
   
           <p class="text">
