@@ -5,7 +5,7 @@ export default <RouteRecordRaw[]> [
     path: '/auth/:type?',
     component: () => import('./auth.page'),
     beforeEnter: (to, _, next) => {
-      if (to.path === '/auth') {
+      if (to.path.replace(/\//g, '') === 'auth') {
         return next({ path: '/auth/sign-in' })
       }
 
