@@ -64,6 +64,7 @@
   }
 
   .widget__notes .content .text {
+    @apply h-full;
     @apply leading-normal;
   }
 }

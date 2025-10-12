@@ -3,6 +3,7 @@ import './notes.style.css'
 import { defineComponent } from 'vue'
 
 import { UIButton } from '@/shared/ui/button'
+import { UITextarea } from '@/shared/ui/textarea'
 
 export default defineComponent(() => {
   return () => (
@@ -52,8 +53,7 @@ export default defineComponent(() => {
           </div>
 
           <p class="text">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione animi tempora soluta officia? Enim architecto blanditiis cumque quibusdam eum veniam provident facere, eos modi magnam dolores dolore dolorem, mollitia molestiae!
-            Sequi nobis totam amet cupiditate soluta, quidem corporis quod asperiores perferendis neque adipisci laboriosam nisi molestiae sed quibusdam odit sint perspiciatis itaque dicta similique inventore ipsam, error vel ducimus! In?
+            <UITextarea value='Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione animi tempora soluta officia? Enim architecto blanditiis cumque quibusdam eum veniam provident facere, eos modi magnam dolores dolore dolorem, mollitia molestiae! Sequi nobis totam amet cupiditate soluta, quidem corporis quod asperiores perferendis neque adipisci laboriosam nisi molestiae sed quibusdam odit sint perspiciatis itaque dicta similique inventore ipsam, error vel ducimus! In?' fulid/>
           </p>
         </div>
       </div>
