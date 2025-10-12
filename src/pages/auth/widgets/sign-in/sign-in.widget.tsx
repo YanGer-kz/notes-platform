@@ -3,6 +3,7 @@ import './sign-in.style.css'
 import { defineComponent } from 'vue'
 
 import { UIInput } from '@/shared/ui/input'
+import { UIButton } from '@/shared/ui/button'
 
 export default defineComponent(() => {
   return () => (
@@ -20,8 +21,11 @@ export default defineComponent(() => {
 
         <div class="form">
           <UIInput value='' placeholder='Enter login' variant='outlined'/>
-          <UIInput value='' placeholder='Enter password' variant='outlined'/>
+          <UIInput type='password' value='' placeholder='Enter password' variant='outlined'/>
         </div>
+
+        <UIButton label='Sign-in'/>
+        <UIButton label='Create a new account' severity='secondary'/>
       </div>
     </>
   )
