@@ -56,15 +56,21 @@
 
   .widget__notes .content {
     @apply col-span-2;
-    @apply flex flex-col gap-6;
+    @apply flex flex-col gap-2;
   }
 
   .widget__notes .content .header {
+    @apply w-full;
     @apply flex flex-nowrap items-center justify-between;
   }
 
   .widget__notes .content .header .group {
+    @apply w-full;
     @apply flex flex-col gap-2;
+  }
+
+  .widget__notes .content .header .group .date {
+    @apply px-4 py-2;
   }
 
   .widget__notes .content .text {
