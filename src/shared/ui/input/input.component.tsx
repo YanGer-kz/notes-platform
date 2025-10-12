@@ -14,7 +14,9 @@ export default defineComponent((props: InputPropsType, ctx: SetupContext<InputEm
 
   return () => (
     <>
-      <input { ...ctx.attrs } class={["ui__input", { fulid: props.fulid }]} value={props.value} onInput={handleValue} placeholder={props.placeholder}/>
+      <label { ...ctx.attrs } class={{ fulid: props.fulid }}>
+        <input class={["ui__input", `ui__input-${props.variant || 'default'}`]} value={props.value} onInput={handleValue} placeholder={props.placeholder}/>
+      </label>
     </>
   )
 }, {
@@ -22,6 +24,7 @@ export default defineComponent((props: InputPropsType, ctx: SetupContext<InputEm
     'value',
     'fulid',
     'placeholder',
+    'variant',
   ],
 
   emits: [
