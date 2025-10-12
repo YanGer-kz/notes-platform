@@ -1,4 +1,16 @@
 @reference "tailwindcss";
 
 @layer components {
+  .widget__sign_in {
+    @apply w-96;
+    @apply flex flex-col gap-4;
+  }
+
+  .widget__sign_in .header {
+    @apply flex flex-col gap-2;
+  }
+
+  .widget__sign_in .form {
+    @apply flex flex-col gap-2;
+  }
 }
