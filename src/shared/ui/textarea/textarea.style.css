@@ -1,4 +1,13 @@
 @reference "tailwindcss";
 
 @layer components {
+  .ui__textarea {
+    @apply outline-none;
+    @apply resize-none;
+  }
+
+  .fulid {
+    @apply w-full;
+    @apply h-full;
+  }
 }
