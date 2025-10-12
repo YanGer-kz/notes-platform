@@ -50,7 +50,7 @@ export default defineComponent(() => {
               </span>
 
               <h1 class="label">
-                <UIInput value='Lorem, ipsum dolor.'/>
+                <UIInput value='Lorem, ipsum dolor.' fulid onValue={val => console.log(val)}/>
               </h1>
             </div>
 
