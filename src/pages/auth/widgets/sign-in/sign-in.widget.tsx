@@ -1,11 +1,14 @@
 import './sign-in.style.css'
 
 import { defineComponent } from 'vue'
+import { useRouter } from 'vue-router'
 
 import { UIInput } from '@/shared/ui/input'
 import { UIButton } from '@/shared/ui/button'
 
 export default defineComponent(() => {
+  const router = useRouter()
+
   return () => (
     <>
       <div class="widget__sign_in">
@@ -24,8 +27,8 @@ export default defineComponent(() => {
           <UIInput type='password' value='' placeholder='Enter password' variant='outlined'/>
         </div>
 
-        <UIButton label='Sign-in'/>
-        <UIButton label='Create a new account' severity='secondary'/>
+        <UIButton label='Sign In'/>
+        <UIButton label='Create a new account' severity='secondary' onClick={() => router.push({ path: '/auth/sign-up' })}/>
       </div>
     </>
   )
