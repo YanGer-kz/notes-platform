@@ -76,11 +76,16 @@ export default defineComponent(() => {
     return null
   }
 
+  const addNote = () => {
+    notesStore.addNote()
+    noteId.value = notesStore.getNotes.length - 1
+  }
+
   return () => (
     <>
       <div class="widget__notes">
         <ul class="navigation">
-          <UIButton label='Add new Note' icon='plus' severity='secondary' size='large' onClick={() => notesStore.addNote()}/>
+          <UIButton label='Add new Note' icon='plus' severity='secondary' size='large' onClick={addNote}/>
 
           {
             getNotes()
