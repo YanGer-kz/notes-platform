@@ -15,12 +15,13 @@ export default defineComponent((props: InputPropsType, ctx: SetupContext<InputEm
   return () => (
     <>
       <label { ...ctx.attrs } class={{ fulid: props.fulid }}>
-        <input class={["ui__input", `ui__input-${props.variant || 'default'}`]} value={props.value} onInput={handleValue} placeholder={props.placeholder}/>
+        <input type={props.type || 'text'} class={["ui__input", `ui__input-${props.variant || 'default'}`]} value={props.value} onInput={handleValue} placeholder={props.placeholder}/>
       </label>
     </>
   )
 }, {
   props: [
+    'type',
     'value',
     'fulid',
     'placeholder',
