@@ -2,5 +2,11 @@
 
 @layer components {
   .ui__input {
+    @apply px-4 py-2;
+    @apply outline-none;
+  }
+
+  .fulid {
+    @apply w-full;
   }
 }
