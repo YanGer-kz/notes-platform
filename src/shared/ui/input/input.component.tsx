@@ -14,13 +14,14 @@ export default defineComponent((props: InputPropsType, ctx: SetupContext<InputEm
 
   return () => (
     <>
-      <input { ...ctx.attrs } class={["ui__input", { fulid: props.fulid }]} value={props.value} onInput={handleValue}/>
+      <input { ...ctx.attrs } class={["ui__input", { fulid: props.fulid }]} value={props.value} onInput={handleValue} placeholder={props.placeholder}/>
     </>
   )
 }, {
   props: [
     'value',
     'fulid',
+    'placeholder',
   ],
 
   emits: [
