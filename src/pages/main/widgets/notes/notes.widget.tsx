@@ -59,7 +59,7 @@ export default defineComponent(() => {
               </span>
   
               <h1 class="label">
-                <UIInput value={note.label} fulid onValue={val => note.label = val} placeholder='Enter label'/>
+                <UIInput value={note.label} fulid onValue={val => note.label = val} placeholder='Enter label' variant='text'/>
               </h1>
             </div>
   
