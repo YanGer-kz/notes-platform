@@ -14,7 +14,6 @@ export default defineComponent(() => {
   const login: Ref<string> = ref('')
   const password: Ref<string> = ref('')
 
-
   const handleSubmit = () => {
     if (!login.value || !password.value) {
       return alerts.value.push('Login or password is empty')
@@ -34,9 +33,19 @@ export default defineComponent(() => {
           </p>
         </div>
 
+        {
+          alerts.value.map((item, i) => (
+            <span key={i} class="error-message">
+              {
+                item
+              }
+            </span>
+          ))
+        }
+
         <div class="form">
-          <UIInput value='' placeholder='Enter login' variant='outlined'/>
-          <UIInput type='password' value='' placeholder='Enter password' variant='outlined'/>
+          <UIInput value={login.value} placeholder='Enter login' variant='outlined' onValue={val => login.value = val}/>
+          <UIInput type='password' value={password.value} placeholder='Enter password' variant='outlined' onValue={val => password.value = val}/>
         </div>
 
         <UIButton label='Sign In' onClick={handleSubmit}/>

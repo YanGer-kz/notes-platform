@@ -10,6 +10,10 @@
     @apply flex flex-col gap-2;
   }
 
+  .widget__sign_in .error-message {
+    @apply text-red-500;
+  }
+
   .widget__sign_in .form {
     @apply flex flex-col gap-2;
   }
