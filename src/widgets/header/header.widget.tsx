@@ -43,7 +43,7 @@ export default defineComponent(() => {
           {
             accountStore.getAccount && (
               <div class="user__rows">
-                <UIAvatar label={accountStore.getAccount.name.charAt(1).toUpperCase()}/>
+                <UIAvatar label={accountStore.getAccount.name.charAt(0).toUpperCase()}/>
 
                 <div class="user__cols">
                   <h1 class="user__name">
