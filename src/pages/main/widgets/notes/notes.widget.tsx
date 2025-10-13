@@ -49,6 +49,35 @@ export default defineComponent(() => {
     ))
   }
 
+  const updateNote = async (val: string, type: 'label' | 'text') => {
+    const note = notesStore.getNote(noteId.value)
+
+    if (!note) {
+      return null
+    }
+
+    if (type === 'label') {
+      note.label = val
+    } else {
+      note.text = val 
+    }
+
+    await axios({
+      url: 'http://localhost:3000/api/v1/note/update',
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      data: {
+        noteId: note.id,
+        label: note.label,
+        text: note.text,
+        access_token: accountStore.getAccessToken,
+        refresh_token: accountStore.getRefreshToken,
+      }
+    })
+  }
+
   const getNote = () => {
     const note = notesStore.getNote(noteId.value)
 
@@ -64,7 +93,7 @@ export default defineComponent(() => {
               </span>
   
               <h1 class="label">
-                <UIInput value={note.label} fulid onValue={val => note.label = val} placeholder='Enter label' variant='text'/>
+                <UIInput value={note.label} fulid onValue={val => updateNote(val, 'label')} placeholder='Enter label' variant='text'/>
               </h1>
             </div>
   
@@ -72,7 +101,7 @@ export default defineComponent(() => {
           </div>
   
           <p class="text">
-            <UITextarea value={note.text} fulid onValue={val => note.text = val} placeholder='Enter text'/>
+            <UITextarea value={note.text} fulid onValue={val => updateNote(val, 'text')} placeholder='Enter text'/>
           </p>
         </div>
       )
