@@ -2,6 +2,9 @@ import './sign-in.style.css'
 
 import { defineComponent, ref, type Ref } from 'vue'
 import { useRouter } from 'vue-router'
+import axios from 'axios'
+
+import { useAccountStore } from '@/app/stores'
 
 import { UIInput } from '@/shared/ui/input'
 import { UIButton } from '@/shared/ui/button'
@@ -9,15 +12,43 @@ import { UIButton } from '@/shared/ui/button'
 export default defineComponent(() => {
   const router = useRouter()
 
-  const alerts: Ref<string[]> = ref([])
+  const alerts: Ref<{ type: 'success' | 'danger', message: string }[]> = ref([])
 
   const login: Ref<string> = ref('')
   const password: Ref<string> = ref('')
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
+    const accountStore = useAccountStore()
+
     if (!login.value || !password.value) {
-      return alerts.value.push('Login or password is empty')
+      return alerts.value.push({
+        type: 'danger',
+        message: 'Login or password is empty'
+      })
     }
+
+    const request = await axios({
+      url: 'http://localhost:3000/api/v1/auth/sign-in',
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      data: {
+        login: login.value,
+        password: password.value,
+      }
+    })
+
+    if (request.data['status'] !== 200) {
+      return alerts.value.push({
+        type: 'danger',
+        message: 'Server error: ' + request.data['message']
+      })
+    }
+
+    return accountStore.setAccount(request.data['user'], request.data['access_token'], request.data['refresh_token']).then(() => {
+      router.push({ path: '/' })
+    })
   }
 
   return () => (
@@ -35,9 +66,9 @@ export default defineComponent(() => {
 
         {
           alerts.value.map((item, i) => (
-            <span key={i} class="error-message">
+            <span key={i} class={`${item.type}-message`}>
               {
-                item
+                item.message
               }
             </span>
           ))
