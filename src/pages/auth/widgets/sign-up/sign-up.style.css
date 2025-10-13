@@ -10,8 +10,12 @@
     @apply flex flex-col gap-2;
   }
 
-  .widget__sign_up .error-message {
+  .widget__sign_up .danger-message {
     @apply text-red-500;
+  }
+
+  .widget__sign_up .success-message {
+    @apply text-green-500;
   }
 
   .widget__sign_up .form {
