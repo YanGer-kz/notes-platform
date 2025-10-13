@@ -78,6 +78,23 @@ export default defineComponent(() => {
     })
   }
 
+  const removeNote = async (noteId: number) => {
+    await axios({
+      url: 'http://localhost:3000/api/v1/note/remove',
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      data: {
+        noteId: noteId,
+        access_token: accountStore.getAccessToken,
+        refresh_token: accountStore.getRefreshToken,
+      }
+    })
+
+    notesStore.removeNote(noteId)
+  }
+
   const getNote = () => {
     const note = notesStore.getNote(noteId.value)
 
@@ -97,7 +114,7 @@ export default defineComponent(() => {
               </h1>
             </div>
   
-            <UIButton icon='trash-can-outline' severity='danger' onClick={() => notesStore.removeNote(note.id)}/>
+            <UIButton icon='trash-can-outline' severity='danger' onClick={() => removeNote(note.id)}/>
           </div>
   
           <p class="text">
