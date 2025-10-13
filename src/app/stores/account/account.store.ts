@@ -12,12 +12,24 @@ export default defineStore('AccountModule', {
   actions: {
     setAccount(account: AccountType, access_token: string, refresh_token: string): Promise<void> {
       return new Promise((resolve) => {
+        localStorage.setItem('access_token', access_token)
+        localStorage.setItem('refresh_token', refresh_token)
+
         this.account = account
         this.access_token = access_token
         this.refresh_token = refresh_token
 
-        localStorage.setItem('access_token', access_token)
-        localStorage.setItem('refresh_token', refresh_token)
+        resolve()
+      })
+    },
+
+    logout(): Promise<void> {
+      return new Promise((resolve) => {
+        localStorage.clear()
+
+        this.account = undefined
+        this.access_token = undefined
+        this.refresh_token = undefined
 
         resolve()
       })

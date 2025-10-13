@@ -3,11 +3,21 @@ import './header.style.css'
 import { defineComponent } from 'vue'
 import { useRouter } from 'vue-router'
 
+import { useAccountStore } from '@/app/stores'
+
 import { UIAvatar } from '@/shared/ui/avatar'
 import { UIButton } from '@/shared/ui/button'
 
 export default defineComponent(() => {
   const router = useRouter()
+  
+  const accountStore = useAccountStore()
+
+  const logout = () => {
+    return accountStore.logout().then(() => {
+      router.push({ path: '/auth' })
+    })
+  }
 
   return () => (
     <>
@@ -17,21 +27,29 @@ export default defineComponent(() => {
         </h1>
 
         <div class="group">
-          <div class="user__rows">
-            <UIAvatar label='IZ'/>
+          {
+            accountStore.getAccount && (
+              <div class="user__rows">
+                <UIAvatar label={accountStore.getAccount.name.charAt(1).toUpperCase()}/>
 
-            <div class="user__cols">
-              <h1 class="user__name">
-                Ilyas Zhakenov
-              </h1>
+                <div class="user__cols">
+                  <h1 class="user__name">
+                    {
+                      accountStore.getAccount.name
+                    }
+                  </h1>
 
-              <p class="user__login">
-                @zhakenov
-              </p>
-            </div>
-          </div>
+                  <p class="user__login">
+                    {
+                      ['@', accountStore.getAccount.login].join('')
+                    }
+                  </p>
+                </div>
+              </div>
+            )
+          }
 
-          <UIButton label='Logout' icon='logout' onClick={() => router.push({ path: '/auth' })}/>
+          <UIButton label='Logout' icon='logout' onClick={logout}/>
         </div>
       </div>
     </>
