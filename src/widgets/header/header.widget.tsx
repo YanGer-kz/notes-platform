@@ -2,6 +2,7 @@ import './header.style.css'
 
 import { defineComponent } from 'vue'
 import { useRouter } from 'vue-router'
+import axios from 'axios'
 
 import { useAccountStore } from '@/app/stores'
 
@@ -13,7 +14,19 @@ export default defineComponent(() => {
   
   const accountStore = useAccountStore()
 
-  const logout = () => {
+  const logout = async () => {
+    await axios({
+      url: 'http://localhost:3000/api/v1/auth/logout',
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      data: {
+        access_token: accountStore.getAccessToken,
+        refresh_token: accountStore.getRefreshToken,
+      }
+    })
+
     return accountStore.logout().then(() => {
       router.push({ path: '/auth' })
     })
