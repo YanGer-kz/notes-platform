@@ -1,6 +1,6 @@
 import './notes.style.css'
 
-import { defineComponent, ref, type Ref } from 'vue'
+import { defineComponent, onMounted, ref, type Ref } from 'vue'
 import axios from 'axios'
 
 import { useAccountStore } from '@/app/stores'
@@ -11,11 +11,14 @@ import { UIInput } from '@/shared/ui/input'
 import { UITextarea } from '@/shared/ui/textarea'
 
 export default defineComponent(() => {
+  const accountStore = useAccountStore()
   const notesStore = useNotesStore()
 
   const noteId: Ref<number | null> = ref(null)
 
-  const formatDate = (date: Date) => {
+  const formatDate = (date: Date | string) => {
+    date = new Date(date)
+
     const months: string[] = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
     const weeks: string[] = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
 
@@ -79,8 +82,6 @@ export default defineComponent(() => {
   }
 
   const addNote = async () => {
-    const accountStore = useAccountStore()
-
     await axios({
       url: 'http://localhost:3000/api/v1/note/create',
       method: 'POST',
@@ -98,6 +99,24 @@ export default defineComponent(() => {
     notesStore.addNote()
     noteId.value = notesStore.getNotes.length - 1
   }
+
+  onMounted(async () => {
+    const request = await axios({
+      url: 'http://localhost:3000/api/v1/notes',
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      data: {
+        access_token: accountStore.getAccessToken,
+        refresh_token: accountStore.getRefreshToken,
+      }
+    })
+
+    if (request.data['status'] === 200) {
+      return notesStore.setNotes(request.data.notes)
+    }
+  })
 
   return () => (
     <>

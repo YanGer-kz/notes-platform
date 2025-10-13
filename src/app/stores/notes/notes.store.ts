@@ -19,6 +19,10 @@ export default defineStore('NotesModule', {
       })
     },
 
+    setNotes(notes: NoteType[]) {
+      this.notes = notes
+    },
+
     removeNote(noteId: number) {
       this.notes.splice(this.notes.findIndex(item => item.id === noteId), 1)
     }
