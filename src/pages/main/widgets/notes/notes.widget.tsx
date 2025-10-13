@@ -1,7 +1,9 @@
 import './notes.style.css'
 
 import { defineComponent, ref, type Ref } from 'vue'
+import axios from 'axios'
 
+import { useAccountStore } from '@/app/stores'
 import { useNotesStore } from '@/app/stores'
 
 import { UIButton } from '@/shared/ui/button'
@@ -76,7 +78,23 @@ export default defineComponent(() => {
     return null
   }
 
-  const addNote = () => {
+  const addNote = async () => {
+    const accountStore = useAccountStore()
+
+    await axios({
+      url: 'http://localhost:3000/api/v1/note/create',
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      data: {
+        label: '',
+        text: '',
+        access_token: accountStore.getAccessToken,
+        refresh_token: accountStore.getRefreshToken,
+      }
+    })
+
     notesStore.addNote()
     noteId.value = notesStore.getNotes.length - 1
   }
